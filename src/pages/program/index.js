@@ -12,7 +12,7 @@ export default class ProgramPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            <h1>중간지점</h1>
+            <h1>mid-spot</h1>
             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tempus nisi. Proin semper, magna non malesuada viverra, mauris leo placerat odio, eget rutrum velit nisi eu justo. Aliquam pharetra massa turpis, id dapibus velit efficitur eget. Nulla laoreet luctus ultrices. Integer porta massa sed orci pretium tristique. Nullam augue massa, fringilla ac magna ut, aliquet lacinia est. Vivamus fermentum neque justo, blandit tincidunt turpis varius vitae. Aliquam erat volutpat. Pellentesque ut condimentum erat, gravida malesuada diam. Praesent vel porttitor elit. Aenean vel porttitor ipsum, at pulvinar mi. Ut luctus egestas lectus ut venenatis.</div>
           </div>
         </section>
@@ -20,7 +20,7 @@ export default class ProgramPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">ongoing</h1>
+              <h1 className="has-text-weight-bold is-size-2">program</h1>
             </div>
             {posts
               .map(({ node: post }) => (
