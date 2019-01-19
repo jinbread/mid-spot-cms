@@ -16,7 +16,7 @@ export default class IndexPage extends React.Component {
               <h1 className="has-text-weight-bold is-size-4">중간지점 mid-spot</h1>
             </div>  
             <div className="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tempus nisi. Proin semper, magna non malesuada viverra, mauris leo placerat odio, eget rutrum velit nisi eu justo. Aliquam pharetra massa turpis, id dapibus velit efficitur eget. Nulla laoreet luctus ultrices. Integer porta massa sed orci pretium tristique. Nullam augue massa, fringilla ac magna ut, aliquet lacinia est. Vivamus fermentum neque justo, blandit tincidunt turpis varius vitae. Aliquam erat volutpat. Pellentesque ut condimentum erat, gravida malesuada diam. Praesent vel porttitor elit. Aenean vel porttitor ipsum, at pulvinar mi. Ut luctus egestas lectus ut venenatis.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tempus nisi. Proin semper, magna non malesuada viverra, mauris leo placerat odio, eget rutrum velit nisi eu justo. Aliquam pharetra massa turpis, id dapibus velit efficitur eget. Nulla laoreet luctus ultrices. Integer porta massa sed orci pretium tristique. Nullam augue massa, fringilla ac magna ut, aliquet lacinia est. Vivamus fermentum neque justo, blandit tincidunt turpis varius vitae. Aliquam erat volutpat.</p>
             </div>
 
             
@@ -90,7 +90,7 @@ export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "exhibition-post" } }}
+      filter: { frontmatter: { templateKey: { eq: "ongoing-post" } }}
     ) {
       edges {
         node {
