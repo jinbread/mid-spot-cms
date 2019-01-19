@@ -65,7 +65,7 @@ export const pageQuery = graphql`
   query ProgramQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "exhibition-post" } }}
+      filter: { frontmatter: { templateKey: { eq: "program-post" } }}
     ) {
       edges {
         node {
