@@ -1,13 +1,19 @@
 @import "~bulma/sass/utilities/initial-variables"
 
-// Config vars
-// Kalidi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
+///////// Color vars /////////
+$mid-black: #222
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: $mid-black
 $body-color: #333
+
+///////// Typography /////////
+$base: 14
+body {
+  font-family: Helvetica, sans-serif
+  font-size: $base
+  font-weight: normal
+  color: $mid-black
+}
 
 .navbar .navbar-menu
   box-shadow:none !important
