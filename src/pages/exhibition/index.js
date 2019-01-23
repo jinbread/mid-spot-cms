@@ -16,19 +16,20 @@ export default class ExhibitionPage extends React.Component {
               <h1 className="has-text-weight-bold is-size-4">exhibition</h1>
               <hr/>
             </div>
-            
+            <div className="columns is-multiline">
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="content"
+                  className="content column is-3"
                   style={{ padding: '2em 0' }}
                   key={post.id}
                 >
-                  <h5>
+                <div className="column">
+                   <p>
                     <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}
+                      <strong>{post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}</strong>
                     </Link>
-                  </h5>
+                  </p>
                   <p>
                     <Link className="has-text-primary"to={post.fields.slug}>
                       {post.frontmatter.author}
@@ -43,7 +44,12 @@ export default class ExhibitionPage extends React.Component {
                     </small>
                   </p>
                 </div>
-              ))}
+                  
+                </div>
+              ))}       
+            </div>
+                  
+            
           </div>
         </section>
       </Layout>

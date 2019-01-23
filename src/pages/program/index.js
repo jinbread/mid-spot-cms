@@ -11,41 +11,48 @@ export default class ProgramPage extends React.Component {
     return (
       <Layout>
       
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-4">program</h1>
-              <hr/>
+      <section className="section">
+      <div className="container">
+        <div className="content">
+          <h1 className="has-text-weight-bold is-size-4">program</h1>
+          <hr/>
+        </div>
+        <div className="columns is-multiline">
+        {posts
+          .map(({ node: post }) => (
+            <div
+              className="content column is-3"
+              style={{ padding: '2em 0' }}
+              key={post.id}
+            >
+            <div className="column">
+               <p>
+                <Link className="has-text-primary" to={post.fields.slug}>
+                  <strong>{post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}</strong>
+                </Link>
+              </p>
+              <p>
+                <Link className="has-text-primary"to={post.fields.slug}>
+                  {post.frontmatter.author}
+                </Link>
+              </p>
+              <p>
+              
+                <small>
+                  <Link className="has-text-primary" to={post.fields.slug}>
+                    {post.frontmatter.date} 작가 진행
+                  </Link>
+                </small>
+              </p>
             </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ padding: '2em 0' }}
-                  key={post.id}
-                >
-                  <h5>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}
-                    </Link>
-                  </h5>
-                  <p>
-                    <Link className="has-text-primary"to={post.fields.slug}>
-                      {post.frontmatter.author}
-                    </Link>
-                  </p>
-                  <p>
-                  
-                    <small>
-                      <Link className="has-text-primary" to={post.fields.slug}>
-                        {post.frontmatter.date} 작가 진행
-                      </Link>
-                    </small>
-                  </p>
-                </div>
-              ))}
-          </div>
-        </section>
+              
+            </div>
+          ))}       
+        </div>
+              
+        
+      </div>
+    </section>
       </Layout>
     )
   }
