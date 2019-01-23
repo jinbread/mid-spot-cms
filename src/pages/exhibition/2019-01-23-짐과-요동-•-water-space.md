@@ -1,7 +1,10 @@
 ---
 templateKey: exhibition-post
-title: 짐과 요동 • water space
-date: 2019-02-07T17:08:43.120Z
+title: 짐과 요동
+englishtitle: Water
+author: 박소현 이은지
+startdate: 2019-04-17T14:00:19.652Z
+enddate: 2019-05-23T19:50:19.711Z
 description: |+
   박소현 이은지
 

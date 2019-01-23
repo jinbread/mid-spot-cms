@@ -1,6 +1,9 @@
 ---
 templateKey: program-post
 title: Anything is possible
+englishtitle: The Far Side of the Moon
+author: 김채송
+thumbnail: /img/chemex.jpg
 date: 2019-01-19T20:33:25.618Z
 description: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et elit eget sem

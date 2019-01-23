@@ -24,20 +24,23 @@ export default class ProgramPage extends React.Component {
                   style={{ padding: '2em 0' }}
                   key={post.id}
                 >
-                  <p>
+                  <h5>
                     <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
+                      {post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}
                     </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
+                  </h5>
+                  <p>
+                    <Link className="has-text-primary"to={post.fields.slug}>
+                      {post.frontmatter.author}
+                    </Link>
                   </p>
                   <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
+                  
+                    <small>
+                      <Link className="has-text-primary" to={post.fields.slug}>
+                        {post.frontmatter.date} 작가 진행
+                      </Link>
+                    </small>
                   </p>
                 </div>
               ))}
@@ -71,8 +74,10 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            englishtitle
+            author
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY.MM.DD H시")
           }
         }
       }
