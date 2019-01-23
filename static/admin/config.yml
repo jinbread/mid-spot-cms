@@ -27,6 +27,10 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "exhibition-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "English Title", name: "englishtitle", widget: "string", required: false}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+      - {label: "Exhibit Date", name: "exhibitdate", widget: "datetime"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}

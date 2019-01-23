@@ -29,14 +29,11 @@ export default class ExhibitionPage extends React.Component {
                       {post.frontmatter.title}
                     </Link>
                     <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
+                    <small></small>
                   </p>
                   <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
+                    <Link to={post.fields.slug}>
+                      {post.frontmatter.date}
                     </Link>
                   </p>
                 </div>
