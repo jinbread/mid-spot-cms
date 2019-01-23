@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
+import Img from 'gatsby-image'
 
 export default class ExhibitionPage extends React.Component {
   render() {
@@ -25,7 +26,8 @@ export default class ExhibitionPage extends React.Component {
                   key={post.id}
                 >
                 <div className="column">
-                   <p>
+                  <img src={post.frontmatter.thumbnail.publicURL} />
+                  <p>
                     <Link className="has-text-primary" to={post.fields.slug}>
                       <strong>{post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}</strong>
                     </Link>
@@ -81,7 +83,11 @@ export const pageQuery = graphql`
           frontmatter {
             title
             englishtitle
-            templateKey
+            templateKey 
+            thumbnail {
+              id
+              publicURL
+            }
             author
             startdate(formatString: "YYYY.MM.DD")
             enddate(formatString: "YYYY.MM.DD")

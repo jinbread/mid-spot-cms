@@ -26,7 +26,8 @@ export default class ProgramPage extends React.Component {
               key={post.id}
             >
             <div className="column">
-               <p>
+              <img src={post.frontmatter.thumbnail.publicURL} /> 
+              <p>
                 <Link className="has-text-primary" to={post.fields.slug}>
                   <strong>{post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}</strong>
                 </Link>
@@ -83,6 +84,9 @@ export const pageQuery = graphql`
             title
             englishtitle
             author
+            thumbnail {
+              publicURL
+            }
             templateKey
             date(formatString: "YYYY.MM.DD H시")
           }

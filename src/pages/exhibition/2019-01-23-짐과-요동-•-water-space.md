@@ -3,6 +3,7 @@ templateKey: exhibition-post
 title: 짐과 요동
 englishtitle: Water
 author: 박소현 이은지
+thumbnail: /img/chemex.jpg
 startdate: 2019-04-17T14:00:19.652Z
 enddate: 2019-05-23T19:50:19.711Z
 description: |+
