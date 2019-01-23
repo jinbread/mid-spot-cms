@@ -28,6 +28,7 @@ export default class IndexPage extends React.Component {
           <div className="container">
             <div className="content">
               <h1 className="has-text-weight-bold is-size-4">ongoing</h1>
+              <hr/>
             </div>
             {posts
               .map(({ node: post }) => (
@@ -53,6 +54,7 @@ export default class IndexPage extends React.Component {
           <div className="container">
             <div className="content">
               <h1 className="has-text-weight-bold is-size-4">upcoming</h1>
+              <hr/>
             </div>
             {posts
               .map(({ node: post }) => (

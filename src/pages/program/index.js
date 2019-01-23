@@ -21,12 +21,17 @@ export default class ProgramPage extends React.Component {
         {posts
           .map(({ node: post }) => (
             <div
-              className="content column is-3"
+              className="content column is-4"
               style={{ padding: '2em 0' }}
               key={post.id}
             >
             <div className="column">
-              <img src={post.frontmatter.thumbnail.publicURL} /> 
+              <p>
+                <Link className="has-text-primary" to={post.fields.slug}>
+                  <img src={post.frontmatter.thumbnail.publicURL} /> 
+                </Link>
+              </p>
+              
               <p>
                 <Link className="has-text-primary" to={post.fields.slug}>
                   <strong>{post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}</strong>
