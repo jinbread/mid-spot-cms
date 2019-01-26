@@ -86,6 +86,11 @@ export default class IndexPage extends React.Component {
                       {post.frontmatter.description}
                       <br />
                     </p>
+                    {post.frontmatter.type == 'program' &&
+                      <p>
+                        <Link to={post.frontmatter.join}>신청서 작성</Link>
+                      </p>
+                    }
                   </div>
                 </div>
               ))}
@@ -131,6 +136,11 @@ export default class IndexPage extends React.Component {
                       {post.frontmatter.description}
                       <br />
                     </p>
+                    {post.frontmatter.type == 'program' &&
+                      <p>
+                        <Link to={post.frontmatter.join}>신청서 작성</Link>
+                      </p>
+                    }
                   </div>
                 </div>
               ))}
@@ -178,6 +188,7 @@ export const pageQuery = graphql`
               publicURL
             }
             type
+            join
             description
             date(formatString: "YYYY.MM.DD HH시 진행")
             startdate(formatString: "YYYY.MM.DD")
