@@ -61,13 +61,15 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["exhibition", "program"]}
       - {label: "English Title", name: "englishtitle", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author English Name", name: "authorenglish", widget: "string"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Start Date", name: "startdate", widget: "datetime"}
-      - {label: "End Date", name: "enddate", widget: "datetime"}
+      - {label: "Start Date", name: "startdate", widget: "date"}
+      - {label: "End Date", name: "enddate", widget: "date"}
       - {label: "Description", name: "description", widget: "text"}
+
   
   - label: "Program in Landing"
     name: "program_landing"
@@ -78,14 +80,16 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["exhibition", "program"]}
       - {label: "English Title", name: "englishtitle", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author English Name", name: "authorenglish", widget: "string"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Start Date", name: "startdate", widget: "datetime"}
-      - {label: "End Date", name: "enddate", widget: "datetime"}
+      - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Join", name: "join", widget: "text"}
+      - {label: "Join Link", name: "join", widget: "text"}
+      
+
 
   - name: "pages"
     label: "Pages"
