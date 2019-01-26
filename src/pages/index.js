@@ -146,7 +146,7 @@ export const pageQuery = graphql`
       filter: { 
         frontmatter: { 
           templateKey: { 
-            eq: "ongoing-post" 
+            eq: "landing-post" 
           } 
         }
       }
