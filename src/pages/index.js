@@ -2,7 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import styled from 'styled-components'
 import "../styles/global.css"
+
+const Container = styled.section`
+  width: 1080px;
+  max-width: 1080px;
+  margin: 0 auto;
+`
+const Inner = styled.div`
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  > div {
+    margin: 0 0.5em;
+  }
+`
+const Box = styled.div`
+  flex: 1;
+  height: 300px;
+  background-color: #efefef;
+  border: 1.5px dotted #999;
+`
+const TitleSection = styled.div`
+  flex: 1;
+  height: 300px;
+  border: 1.5px dotted #999;
+`
 
 export default class IndexPage extends React.Component {
   render() {
@@ -11,18 +38,15 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-4">중간지점 mid-spot</h1>
-            </div>  
-            <div className="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tempus nisi. Proin semper, magna non malesuada viverra, mauris leo placerat odio, eget rutrum velit nisi eu justo. Aliquam pharetra massa turpis, id dapibus velit efficitur eget. Nulla laoreet luctus ultrices. Integer porta massa sed orci pretium tristique. Nullam augue massa, fringilla ac magna ut, aliquet lacinia est. Vivamus fermentum neque justo, blandit tincidunt turpis varius vitae. Aliquam erat volutpat.</p>
-            </div>
-
-            
-          </div>
-        </section>
+        <Container>
+          <Inner>
+            <Box></Box>
+            <TitleSection>
+              <b>중간 지점</b>&nbsp;
+              <Link to="/about">about</Link>
+            </TitleSection>
+          </Inner>
+        </Container>
       
         <section className="section">
           <div className="container">
