@@ -35,6 +35,7 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
+    
 
     return (
       <Layout>
@@ -69,13 +70,17 @@ export default class IndexPage extends React.Component {
                   
                   <div className="column is-8">
                     <p>
+                      {post.frontmatter.type}
+                    </p>
+                    
+                    <p>
                       <strong>{post.frontmatter.title} <span> &bull; </span> {post.frontmatter.englishtitle}</strong>
                     </p>
                     <p>
                       {post.frontmatter.author} <span> &bull; </span> {post.frontmatter.authorenglish} 
                     </p>
                     <p>  
-                      <small>{post.frontmatter.startdate} - {post.frontmatter.enddate}</small>
+                      <small>{post.frontmatter.type == 'program' ? post.frontmatter.date : post.frontmatter.startdate + ' - ' + post.frontmatter.enddate }</small>
                     </p>
                     <p>
                       {post.frontmatter.description}
@@ -103,11 +108,14 @@ export default class IndexPage extends React.Component {
                   <div className="column is-4">
                     <p>
                       <img className="thumbnail-poster" src={post.frontmatter.thumbnail.publicURL}/>
-                      {data.allMarkdownRemark.filter}
+                      
                     </p>
                   </div>
                   
                   <div className="column is-8">
+                    <p>
+                     {post.frontmatter.type}
+                    </p>
                     <p>
                       <strong>{post.frontmatter.title} <span> &bull; </span> {post.frontmatter.englishtitle}</strong>
                     </p>
@@ -115,10 +123,12 @@ export default class IndexPage extends React.Component {
                       {post.frontmatter.author} <span> &bull; </span> {post.frontmatter.authorenglish} 
                     </p>
                     <p>  
-                      <small>{post.frontmatter.startdate} - {post.frontmatter.enddate}</small>
+                      <small>{post.frontmatter.type == 'program' ? post.frontmatter.date : post.frontmatter.startdate + ' - ' + post.frontmatter.enddate }
+                      
+                      </small>
                     </p>
                     <p>
-                      {post.excerpt}
+                      {post.frontmatter.description}
                       <br />
                     </p>
                   </div>
@@ -167,7 +177,9 @@ export const pageQuery = graphql`
             thumbnail {
               publicURL
             }
+            type
             description
+            date(formatString: "YYYY.MM.DD HH시 진행")
             startdate(formatString: "YYYY.MM.DD")
             enddate(formatString: "YYYY.MM.DD")
           }
