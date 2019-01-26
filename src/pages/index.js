@@ -51,29 +51,42 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-4">ongoing</h1>
+              <h1 className="has-text-weight-bold is-size-4">upcoming</h1>
               <hr/>
             </div>
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="content"
+                  className="content columns"
                   style={{padding: '1em 0' }}
                   key={post.id}
                 >
-                  <p>
-                    {post.frontmatter.title}
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                  </p>
+                  <div className="column is-4">
+                    <p>
+                      <img className="thumbnail-poster" src={post.frontmatter.thumbnail.publicURL}/>
+                    </p>
+                  </div>
+                  
+                  <div className="column is-8">
+                    <p>
+                      <strong>{post.frontmatter.title} <span> &bull; </span> {post.frontmatter.englishtitle}</strong>
+                    </p>
+                    <p>
+                      {post.frontmatter.author} <span> &bull; </span> {post.frontmatter.authorenglish} 
+                    </p>
+                    <p>  
+                      <small>{post.frontmatter.startdate} - {post.frontmatter.enddate}</small>
+                    </p>
+                    <p>
+                      {post.frontmatter.description}
+                      <br />
+                    </p>
+                  </div>
                 </div>
               ))}
           </div>
         </section>
+
         <section className="section">
           <div className="container">
             <div className="content">
@@ -83,19 +96,32 @@ export default class IndexPage extends React.Component {
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="content"
+                  className="content columns"
                   style={{padding: '1em 0' }}
                   key={post.id}
                 >
-                  <p>
-                    {post.frontmatter.title}
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                  </p>
+                  <div className="column is-4">
+                    <p>
+                      <img className="thumbnail-poster" src={post.frontmatter.thumbnail.publicURL}/>
+                      {data.allMarkdownRemark.filter}
+                    </p>
+                  </div>
+                  
+                  <div className="column is-8">
+                    <p>
+                      <strong>{post.frontmatter.title} <span> &bull; </span> {post.frontmatter.englishtitle}</strong>
+                    </p>
+                    <p>
+                      {post.frontmatter.author} <span> &bull; </span> {post.frontmatter.authorenglish} 
+                    </p>
+                    <p>  
+                      <small>{post.frontmatter.startdate} - {post.frontmatter.enddate}</small>
+                    </p>
+                    <p>
+                      {post.excerpt}
+                      <br />
+                    </p>
+                  </div>
                 </div>
               ))}
           </div>
@@ -117,19 +143,33 @@ export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "ongoing-post" } }}
+      filter: { 
+        frontmatter: { 
+          templateKey: { 
+            eq: "ongoing-post" 
+          } 
+        }
+      }
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
+          excerpt
           id
           fields {
             slug
           }
           frontmatter {
             title
+            englishtitle
+            author
+            authorenglish
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            thumbnail {
+              publicURL
+            }
+            description
+            startdate(formatString: "YYYY.MM.DD")
+            enddate(formatString: "YYYY.MM.DD")
           }
         }
       }

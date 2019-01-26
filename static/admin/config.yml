@@ -52,32 +52,39 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
-  - name: "ongoing"
-    label: "Ongoing"
-    folder: "src/pages/ongoing"
+  - label: "Exhibition in Landing"
+    name: "exhibition_landing"
+    folder: "src/pages/landing"
+    filter: {field: "landing", value: "exhibition"}
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ongoing-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "English Title", name: "englishtitle", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Author English Name", name: "authorenglish", widget: "string"}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+      - {label: "Start Date", name: "startdate", widget: "datetime"}
+      - {label: "End Date", name: "enddate", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-
-  - name: "upcoming"
-    label: "Upcoming"
-    folder: "src/pages/upcoming"
+  
+  - label: "Program in Landing"
+    name: "program_landing"
+    folder: "src/pages/landing"
+    filter: {field: "landing", value: "program"}
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "upcoming-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "English Title", name: "englishtitle", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Author English Name", name: "authorenglish", widget: "string"}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+      - {label: "Start Date", name: "startdate", widget: "datetime"}
+      - {label: "End Date", name: "enddate", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-
 
   - name: "pages"
     label: "Pages"
