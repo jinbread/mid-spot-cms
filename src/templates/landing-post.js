@@ -6,7 +6,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const OngoingPostTemplate = ({
+export const LandingPostTemplate = ({
   content,
   contentComponent,
   description,
@@ -46,7 +46,7 @@ export const OngoingPostTemplate = ({
   )
 }
 
-OngoingPostTemplate.propTypes = {
+LandingPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -54,18 +54,18 @@ OngoingPostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const OngoingPost = ({ data }) => {
+const LandingPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <OngoingPostTemplate
+      <LandingPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
           <Helmet
-            titleTemplate="%s | Ongoing"
+            titleTemplate="%s | Landing"
           >
             <title>{`${post.frontmatter.title}`}</title>
             <meta name="description" content={`${post.frontmatter.description}`} />
@@ -78,16 +78,16 @@ const OngoingPost = ({ data }) => {
   )
 }
 
-OngoingPost.propTypes = {
+LandingPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default OngoingPost
+export default LandingPost
 
 export const pageQuery = graphql`
-  query OngoingPostByID($id: String!) {
+  query LandingPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
