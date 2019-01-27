@@ -6,19 +6,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-
   - name: "exhibition"
     label: "Exhibition"
     folder: "src/pages/exhibition"
@@ -52,46 +39,24 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
-  - label: "Exhibition in Landing"
-    name: "exhibition_landing"
+  - label: "Landing"
+    name: "landing"
     folder: "src/pages/landing"
-    filter: {field: "landing", value: "exhibition"}
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Type", name: "type", widget: "select", options: ["exhibition", "program"]}
-      - {label: "State", name: "now", widget: "select", options: ["ongoing", "upcoming"]}
       - {label: "English Title", name: "englishtitle", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author English Name", name: "authorenglish", widget: "string"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Start Date", name: "startdate", widget: "date"}
-      - {label: "End Date", name: "enddate", widget: "date"}
-      - {label: "Description", name: "description", widget: "text"}
-
-  
-  - label: "Program in Landing"
-    name: "program_landing"
-    folder: "src/pages/landing"
-    filter: {field: "landing", value: "program"}
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
-      - {label: "Title", name: "title", widget: "string"}
       - {label: "Type", name: "type", widget: "select", options: ["exhibition", "program"]}
-      - {label: "State", name: "now", widget: "select", options: ["ongoing", "upcoming"]}
-      - {label: "English Title", name: "englishtitle", widget: "string"}
-      - {label: "Author", name: "author", widget: "string"}
-      - {label: "Author English Name", name: "authorenglish", widget: "string"}
+      - {label: "State", name: "now", widget: "select", options: ["ongoing", "upcoming"]}      
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Start Date", name: "startdate", widget: "datetime"}
+      - {label: "End Date", name: "enddate", widget: "datetime", required: false}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Join Link", name: "join", widget: "text"}
-      
-
+      - {label: "Join Link", name: "join", widget: "text", required: false}
 
   - name: "pages"
     label: "Pages"

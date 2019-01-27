@@ -90,7 +90,7 @@ export default class IndexPage extends React.Component {
                     </p>
                     {post.frontmatter.type == 'program' &&
                       <p>
-                        <Link to={post.frontmatter.join}>신청서 작성</Link>
+                        <a href={post.frontmatter.join}>신청서 작성</a>
                       </p>
                     }
                   </div>
