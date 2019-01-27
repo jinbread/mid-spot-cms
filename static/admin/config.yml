@@ -55,7 +55,7 @@ collections:
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Start Date", name: "startdate", widget: "datetime"}
       - {label: "End Date", name: "enddate", widget: "datetime", required: false}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description", name: "description", widget: "markdown"}
       - {label: "Join Link", name: "join", widget: "text", required: false}
 
   - name: "pages"
