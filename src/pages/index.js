@@ -52,7 +52,7 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-4">upcoming</h1>
+              <h1 className="has-text-weight-bold is-size-4">ongoing</h1>
               <hr/>
             </div>
             {posts
@@ -62,12 +62,14 @@ export default class IndexPage extends React.Component {
                   style={{padding: '1em 0' }}
                   key={post.id}
                 >
+                {post.frontmatter.now == 'ongoing' && 
                   <div className="column is-4">
                     <p>
                       <img className="thumbnail-poster" src={post.frontmatter.thumbnail.publicURL}/>
                     </p>
                   </div>
-                  
+                }
+                {post.frontmatter.now == 'ongoing' && 
                   <div className="column is-8">
                     <p>
                       {post.frontmatter.type}
@@ -92,6 +94,7 @@ export default class IndexPage extends React.Component {
                       </p>
                     }
                   </div>
+                  }
                 </div>
               ))}
           </div>
@@ -105,44 +108,51 @@ export default class IndexPage extends React.Component {
             </div>
             {posts
               .map(({ node: post }) => (
-                <div
-                  className="content columns"
-                  style={{padding: '1em 0' }}
-                  key={post.id}
-                >
-                  <div className="column is-4">
-                    <p>
-                      <img className="thumbnail-poster" src={post.frontmatter.thumbnail.publicURL}/>
-                      
-                    </p>
-                  </div>
-                  
-                  <div className="column is-8">
-                    <p>
-                     {post.frontmatter.type}
-                    </p>
-                    <p>
-                      <strong>{post.frontmatter.title} <span> &bull; </span> {post.frontmatter.englishtitle}</strong>
-                    </p>
-                    <p>
-                      {post.frontmatter.author} <span> &bull; </span> {post.frontmatter.authorenglish} 
-                    </p>
-                    <p>  
-                      <small>{post.frontmatter.type == 'program' ? post.frontmatter.date : post.frontmatter.startdate + ' - ' + post.frontmatter.enddate }
-                      
-                      </small>
-                    </p>
-                    <p>
-                      {post.frontmatter.description}
-                      <br />
-                    </p>
-                    {post.frontmatter.type == 'program' &&
+                
+
+                  <div
+                    className="content columns"
+                    style={{padding: '1em 0' }}
+                    key={post.id}
+                  >
+                  {post.frontmatter.now == 'upcoming' && 
+                    <div className="column is-4">
                       <p>
-                        <Link to={post.frontmatter.join}>신청서 작성</Link>
+                        <img className="thumbnail-poster" src={post.frontmatter.thumbnail.publicURL}/>
+                        
                       </p>
-                    }
+                    </div>
+                  }
+                  {post.frontmatter.now == 'upcoming' &&  
+                    <div className="column is-8">
+                      <p>
+                      
+                      {post.frontmatter.type}
+                      </p>
+                      <p>
+                        <strong>{post.frontmatter.title} <span> &bull; </span> {post.frontmatter.englishtitle}</strong>
+                      </p>
+                      <p>
+                        {post.frontmatter.author} <span> &bull; </span> {post.frontmatter.authorenglish} 
+                      </p>
+                      <p>  
+                        <small>{post.frontmatter.type == 'program' ? post.frontmatter.date : post.frontmatter.startdate + ' - ' + post.frontmatter.enddate }
+                        
+                        </small>
+                      </p>
+                      <p>
+                        {post.frontmatter.description}
+                        <br />
+                      </p>
+                      {post.frontmatter.type == 'program' &&
+                        <p>
+                          <Link to={post.frontmatter.join}>신청서 작성</Link>
+                        </p>
+                      }
+                    
+                    </div>
+                  }
                   </div>
-                </div>
               ))}
           </div>
         </section>
@@ -188,6 +198,7 @@ export const pageQuery = graphql`
               publicURL
             }
             type
+            now
             join
             description
             date(formatString: "YYYY.MM.DD HH시 진행")

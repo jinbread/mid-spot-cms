@@ -62,6 +62,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Type", name: "type", widget: "select", options: ["exhibition", "program"]}
+      - {label: "State", name: "now", widget: "select", options: ["ongoing", "upcoming"]}
       - {label: "English Title", name: "englishtitle", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author English Name", name: "authorenglish", widget: "string"}
@@ -81,6 +82,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Type", name: "type", widget: "select", options: ["exhibition", "program"]}
+      - {label: "State", name: "now", widget: "select", options: ["ongoing", "upcoming"]}
       - {label: "English Title", name: "englishtitle", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author English Name", name: "authorenglish", widget: "string"}
