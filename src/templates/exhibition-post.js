@@ -11,6 +11,15 @@ export const ExhibitionPostTemplate = ({
   contentComponent,
   tags,
   title,
+  englishtitle,
+  author,
+  englishauthor,
+  startdate,
+  enddate,
+  location,
+  englishlocation,
+  sponsor,
+  englishsponsor,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
@@ -22,8 +31,12 @@ export const ExhibitionPostTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+              {title} | {englishtitle}
             </h1>
+            <p>{startdate} - {enddate}</p>
+            <p>{author} | {englishauthor}</p>
+            {location && <p>{location} | {englishlocation}</p>}
+            {sponsor && <p>{sponsor} | {englishsponsor}</p>}
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -48,6 +61,13 @@ ExhibitionPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   title: PropTypes.string,
+  englishtitle: PropTypes.string,
+  author: PropTypes.string,
+  englishauthor: PropTypes.string,
+  location: PropTypes.string,
+  englishlocation: PropTypes.string,
+  sponsor: PropTypes.string,
+  englishsponsor: PropTypes.string,
   helmet: PropTypes.object,
 }
 
@@ -59,7 +79,6 @@ const ExhibitionPost = ({ data }) => {
       <ExhibitionPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
         helmet={
           <Helmet
             titleTemplate="%s | Exhibition"
