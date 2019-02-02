@@ -5,31 +5,31 @@ import Layout from '../components/Layout'
 import styled from 'styled-components'
 import "../styles/global.css"
 
-const Container = styled.section`
-  width: 1080px;
-  max-width: 1080px;
-  margin: 0 auto;
-`
-const Inner = styled.div`
-  width: 100%;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  > div {
-    margin: 0 0.5em;
-  }
-`
-const Box = styled.div`
-  flex: 1;
-  height: 300px;
-  background-color: #efefef;
-  border: 1.5px dotted #999;
-`
-const TitleSection = styled.div`
-  flex: 1;
-  height: 300px;
-  border: 1.5px dotted #999;
-`
+// const Container = styled.section`
+//   width: 1080px;
+//   max-width: 1080px;
+//   margin: 0 auto;
+// `
+// const Inner = styled.div`
+//   width: 100%;
+//   height: 300px;
+//   display: flex;
+//   align-items: center;
+//   > div {
+//     margin: 0 0.5em;
+//   }
+// `
+// const Box = styled.div`
+//   flex: 1;
+//   height: 300px;
+//   background-color: #efefef;
+//   border: 1.5px dotted #999;
+// `
+// const TitleSection = styled.div`
+//   flex: 1;
+//   height: 300px;
+//   border: 1.5px dotted #999;
+// `
 
 export default class IndexPage extends React.Component {
   render() {
@@ -39,15 +39,13 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <Container>
-          <Inner>
-            <Box></Box>
-            <TitleSection>
-              <b>중간 지점</b>&nbsp;
-              <Link to="/about">about</Link>
-            </TitleSection>
-          </Inner>
-        </Container>
+        <section className="section">
+          <div className="container">
+            <div style={{height:'500px', width: '100%'}}>
+              followmove 인터랙션 추가할 곳
+            </div>
+          </div>
+        </section>
       
         <section className="section">
           <div className="container">
