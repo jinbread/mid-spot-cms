@@ -9,9 +9,17 @@ import Content, { HTMLContent } from '../components/Content'
 export const ProgramPostTemplate = ({
   content,
   contentComponent,
-  description,
   tags,
+  category,
   title,
+  englishtitle,
+  author,
+  englishauthor,
+  date,
+  location,
+  englishlocation,
+  sponsor,
+  englishsponsor,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
@@ -22,10 +30,14 @@ export const ProgramPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
+            <small>{category}</small>
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+              {title} | {englishtitle}
             </h1>
-            <p>{description}</p>
+            <p>{date}</p>
+            <p>{author} | {englishauthor}</p>
+            {location && <p>{location} | {englishlocation}</p>}
+            {sponsor && <p>{sponsor} | {englishsponsor}</p>}
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -49,8 +61,15 @@ export const ProgramPostTemplate = ({
 ProgramPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
-  description: PropTypes.string,
+  category: PropTypes.string,
   title: PropTypes.string,
+  englishtitle: PropTypes.string,
+  author: PropTypes.string,
+  englishauthor: PropTypes.string,
+  location: PropTypes.string,
+  englishlocation: PropTypes.string,
+  sponsor: PropTypes.string,
+  englishsponsor: PropTypes.string,
   helmet: PropTypes.object,
 }
 
@@ -62,13 +81,11 @@ const ProgramPost = ({ data }) => {
       <ProgramPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        description={post.frontmatter.description}
         helmet={
           <Helmet
             titleTemplate="%s | Program"
           >
             <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
           </Helmet>
         }
         tags={post.frontmatter.tags}
@@ -94,7 +111,6 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        description
         tags
       }
     }
