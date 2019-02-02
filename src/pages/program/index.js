@@ -31,10 +31,10 @@ export default class ProgramPage extends React.Component {
                   <img src={post.frontmatter.thumbnail.publicURL} /> 
                 </Link>
               </p>
-              
               <p>
                 <Link className="has-text-primary" to={post.fields.slug}>
-                  <strong>{post.frontmatter.title}  &bull; {post.frontmatter.englishtitle}</strong>
+                  <small>{post.frontmatter.category}</small>
+                  <strong>{post.frontmatter.title} | {post.frontmatter.englishtitle}</strong>
                 </Link>
               </p>
               <p>
@@ -46,7 +46,7 @@ export default class ProgramPage extends React.Component {
               
                 <small>
                   <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.date} 작가 진행
+                    {post.frontmatter.date}
                   </Link>
                 </small>
               </p>
